@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+
+        }
+.background-color{
+    background-color: green;
+    color: yellow;
+    text-align: center;
+    padding: 29px;
+    font-size: 25px;
+}
+.container {
+    padding:300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.student-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.student-btn:hover {
+    background-color: #45a049;
+}
+
+.teacher-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.teacher-btn:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="background-color">
+        <h1>School Management</h1>
+    </div>
+        <div class="container">
+            <a href="studentloginpage.html"><button id="student-button" class="student-btn">Student Login</button></a>
+            <a href="teacherloginpage.html"><button id="teacher-button" class="teacher-btn">Teacher Login</button></a>
+        </div>
+</body>
+</html>

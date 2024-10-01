@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Student Login</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+/* .background-color{
+    background-color: green;
+    color: yellow;
+    text-align: center;
+    padding: 29px;
+    font-size: 25px;
+} */
+
+.container {
+    text-align: center;
+}
+
+.student-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.student-btn:hover {
+    background-color: #45a049;
+}
+
+.login-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 473px;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+/* button{
+        width: 120px;
+    height: 34px;
+    background-color: blue;
+    color: white;
+    border: none;
+} */
+ .btnstyle{
+            width: 120px;
+    height: 34px;
+    background-color: blue;
+    color: white;
+    border: none;
+ }
+
+    </style>
+</head>
+
+<body>
+    <!-- <div class="background-color"></div>
+        <h1>School Management</h1>
+    </div> -->
+    <div class="container">
+        <button id="student-button" class="student-btn">Student Login</button>
+
+        <div id="login-form" class="login-form hidden">
+            <h3>Student Login</h3>
+            <form id="loginForm" action="portfolio.html" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button class="btnstyle" type="button" onclick="validateLogin()">Login</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+            </div>
+            <p id="error-message" class="error-message">If not registered. Please <a
+                    href="studentRegistration.html">register here</a>.</p>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("student-button").addEventListener("click", function () {
+
+                document.getElementById("login-form").classList.remove("hidden");
+            });
+
+            function validateLogin() {
+
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+
+                if (username === "student1" && password === "password123") {
+
+                    window.location.href = "student1portfolio.html";
+                }
+                else if(username === "student2" && password === "password123"){
+                    window.location.href = "student2portfolio.html";
+
+                }
+                else if(username === "student3" && password === "password123") {
+                    window.location.href = "student3portfolio.html";
+
+                } else {
+                    document.getElementById("error-message").classList.remove("hidden");
+                }
+            }
+
+    </script>
+</body>
+
+</html>
