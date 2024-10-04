@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            position: fixed;
+            width: 100%;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar button {
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            /* font-size: 15px; */
+            height: 42px;
+            width: 124px;
+            border-radius: 5px;
+            margin-top: 13px;
+        }
+
+        .navbar button:hover {
+            background-color: #3b5998;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 50px);
+            /* Subtracting the height of the navbar */
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sidebar button {
+            background-color: #3b5998;
+            color: #ecf0f1;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: left;
+            height: 100px;
+            border-radius: 10px;
+            font-size: 19px;
+            text-align: center;
+        }
+
+        .sidebar button:hover {
+            background-color: #1d3557;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #ecf0f1;
+        }
+
+        /* //////////// */
+        .container1 {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .show-students-button {
+            background-color: darkorange;
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-size: large;
+        }
+
+        /* .backto-classes-button {
+            background-color: darkorange;
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-size: large;
+        } */
+
+        .searchInput {
+            width: 328px;
+            font-size: 19px;
+            padding: 6px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: honeydew;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .profilebtn {
+            background-color: chocolate;
+            padding: 9px;
+            border: none;
+            width: 101px;
+            border-radius: 5px;
+            color: whitesmoke;
+        }
+
+        .profilebtn button:hover {
+            background-color: green;
+        }
+
+        /* #studentProfile {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .studentProfile {
+            background-color: aqua;
+
+        } */
+
+        .student-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .dark-theme {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .student-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .student-card p {
+            margin: 5px 0;
+        }
+
+        .closeTableBtn {
+            background-color: red;
+            color: white;
+            padding: 11px;
+            width: 139px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 17px;
+            font-size: 17px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .changeColor {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="navButtons" onclick="navigateTo('teacherhomesocial.html')">Home</button>
+        <h1 style="color: yellow;">Teacher Portal</h1>
+        <button onclick="navigateTo('schoolManagement.html')">Logout</button>
+    </nav>
+    <!-- Navigation Bar -->
+
+    <!-- Sidebar -->
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="loadContent('studentsinfo.html')">Students Info</button>
+            <button onclick="loadContent('assignments.html')">Assignments</button>
+            <button onclick="loadContent('attendence.html')">Attendence</button>
+            <button onclick="loadContent('examination.html')">Examination</button>
+            <button onclick="loadContent('leaveinfo.html')">Leave Info</button>
+        </div>
+        <!-- Sidebar -->
+
+        <!-- Main Content Area -->
+        <div class="main-content" id="main-content">
+            <h1 style="margin-top: 0;">Student Complete Details</h1>
+
+            <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                <button
+                    style="background-color: red;color: white;border:none;border-radius:5px;font-size: large;padding:8px;"
+                    onclick="loadContent('studentsinfo.html')">Back to Classes</button>
+
+                <!-- <a href="teacherhomesocial.html"><button class="backto-classes-button"
+                        id="backToClassesBtn">Back</button></a> -->
+                <button class="show-students-button" id="showStudentsBtn">Show Students</button>
+                <input type="text" class="searchInput" id="searchInput" placeholder="Search student...">
+            </div>
+
+            <!-- =========================================================================== -->
+            <div class="container1">
+
+                <table id="studentTable" class="hidden">
+                    <thead style="background-color: #2c3e50;color: white;">
+                        <tr>
+                            <th>Profile Image</th>
+                            <th>Student Name</th>
+                            <th>Age</th>
+                            <th>Contact-no</th>
+                            <th>Roll Number</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                    </tbody>
+                </table>
+                <!-- 
+                <div id="studentProfile" class="studentProfile hidden">
+                </div> -->
+                <div id="studentCard" class="student-card dark-theme hidden">
+                    <!-- Student card details will be displayed here -->
+                </div>
+                <button id="closeTableBtn" class="closeTableBtn hidden">Close Table</button>
+
+            </div>
+        </div>
+        <!-- Main Content Area -->
+    </div>
+
+    <script>
+        //============================================================================
+        function loadContent(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                    document.getElementById('main-content').innerHTML = '<p>Sorry, an error occurred while loading the content.</p>';
+                });
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        //============================================================================
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const students = [
+                { id: 1, card: 'Student Details', name: 'Satish', age: 7, Contactno: '+91765984135', profileImg: 'https://static.vecteezy.com/system/resources/thumbnails/038/252/103/small/ai-generated-asian-male-student-smiling-happily-on-transparent-background-study-success-concept-png.png' },
+                { id: 2, card: 'Student Details', name: 'Raju', age: 8, Contactno: '+918675432891', profileImg: 'https://img.freepik.com/premium-photo/girl-with-glasses-holding-blue-book-with-words-she-is-holding-blue-folder_403587-2994.jpg' },
+                { id: 3, card: 'Student Details', name: 'Sidharth', age: 6, Contactno: '+916897432584', profileImg: 'https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxLzI3OS1wYWkxNTc5LW5hbS1qb2IxNTI5LnBuZw.png' },
+                { id: 4, card: 'Student Details', name: 'Srikanth', age: 8, Contactno: '+918653984721', profileImg: 'https://e7.pngegg.com/pngimages/238/667/png-clipart-student-rg-education-immigration-consultants-tsi-study-questions-2018-2019-three-tsi-practice-tests-for-the-texas-success-initiative-assessment-student-orange-people.png' },
+                { id: 5, card: 'Student Details', name: 'Satish', age: 7, Contactno: '+918679523465', profileImg: 'https://static.vecteezy.com/system/resources/thumbnails/038/252/103/small/ai-generated-asian-male-student-smiling-happily-on-transparent-background-study-success-concept-png.png' },
+                { id: 6, card: 'Student Details', name: 'Raju', age: 8, Contactno: '+918657234697', profileImg: 'https://img.freepik.com/premium-psd/handsome-boy-wearing-white-tshirt-png_1296627-5721.jpg' },
+                { id: 7, card: 'Student Details', name: 'Sidharth', age: 6, Contactno: '+91826694826', profileImg: 'https://img.freepik.com/premium-psd/png-red-hair-boy-dull-yellow-tshirt-transparent-background_53876-197193.jpg' },
+                { id: 8, card: 'Student Details', name: 'Srikanth', age: 8, Contactno: '+915559856856', profileImg: 'https://static.vecteezy.com/system/resources/thumbnails/038/252/103/small/ai-generated-asian-male-student-smiling-happily-on-transparent-background-study-success-concept-png.png' },
+                { id: 4, card: 'Student Details', name: 'Srikanth', age: 8, Contactno: '+918653984721', profileImg: 'https://e7.pngegg.com/pngimages/238/667/png-clipart-student-rg-education-immigration-consultants-tsi-study-questions-2018-2019-three-tsi-practice-tests-for-the-texas-success-initiative-assessment-student-orange-people.png' },
+                { id: 9, card: 'Student Details', name: 'Soomesh', age: 7, Contactno: '+918307731982', profileImg: 'https://img.lovepik.com/element/40217/4633.png_1200.png' },
+                { id: 3, card: 'Student Details', name: 'Sidharth', age: 6, Contactno: '+916897432584', profileImg: 'https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxLzI3OS1wYWkxNTc5LW5hbS1qb2IxNTI5LnBuZw.png' },
+
+
+            ];
+
+            const showStudentsBtn = document.getElementById('showStudentsBtn');
+            const studentTable = document.getElementById('studentTable');
+            const studentTableBody = document.getElementById('studentTableBody');
+            const searchInput = document.getElementById('searchInput');
+            const studentProfile = document.getElementById('studentProfile');
+            const closeTableBtn = document.getElementById('closeTableBtn');
+            const studentCard = document.getElementById('studentCard')
+
+
+
+            const displayStudents = (studentList) => {
+                studentTableBody.innerHTML = '';
+                studentList.forEach(student => {
+                    const row = document.createElement('tr');
+
+                    const profileImgCell = document.createElement('td');
+                    const profileImg = document.createElement('img');
+                    profileImg.src = student.profileImg;
+                    profileImg.alt = `${student.name}'s profile picture`;
+                    profileImgCell.appendChild(profileImg);
+                    row.appendChild(profileImgCell);
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = student.name;
+                    nameCell.classList.add('student-name');
+                    nameCell.addEventListener('click', () => displayStudentProfile(student));
+                    row.appendChild(nameCell);
+
+                    const agecell = document.createElement('td');
+                    agecell.textContent = student.age;
+                    row.appendChild(agecell);
+
+                    const gradeCell = document.createElement('td');
+                    gradeCell.textContent = student.Contactno;
+                    row.appendChild(gradeCell);
+
+                    const idCell = document.createElement('td');
+                    idCell.textContent = student.id;
+                    row.appendChild(idCell);
+
+                    const actionsCell = document.createElement('td');
+                    const viewProfileBtn = document.createElement('button');
+                    viewProfileBtn.classList.add('profilebtn')
+                    viewProfileBtn.textContent = 'View Profile';
+                    viewProfileBtn.id = "viewProfileButton"
+
+                    viewProfileBtn.addEventListener('click', () => displayStudentCard(student));
+                    actionsCell.appendChild(viewProfileBtn);
+                    row.appendChild(actionsCell);
+
+                    studentTableBody.appendChild(row);
+                });
+                studentTable.classList.remove('hidden');
+                closeTableBtn.classList.remove('hidden');
+
+                // let viewProfileButton = document.getElementById('viewProfileButton')
+                // viewProfileButton.addEventListener('click', function () {
+                //     viewProfileButton.classList.add("changeColor")
+                // })
+
+
+            };
+
+            const displayStudentCard = (student) => {
+                studentCard.innerHTML = `
+                <h1 style="margin-bottom:0;color:yellow">${student.card}</h1>
+            <img src="${student.profileImg}" alt="${student.name}'s profile picture">
+            <h2 style="margin-top:0">${student.name}</h2>
+            <p><strong>Age:</strong> ${student.age}</p>
+            <p><strong>Contact no:</strong> ${student.Contactno}</p>
+            <p><strong>Roll Number:</strong> ${student.id}</p>
+        `;
+                studentCard.classList.remove('hidden');
+            };
+
+
+            showStudentsBtn.addEventListener('click', () => {
+                showStudentsBtn.style.backgroundColor = "green"
+                displayStudents(students);
+            });
+
+
+            searchInput.addEventListener('input', (e) => {
+                // e.preventDefault()
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredStudents = students.filter(student =>
+                    student.name.toLowerCase().slice(0, 1).includes(searchTerm)
+                );
+                displayStudents(filteredStudents);
+            });
+
+            closeTableBtn.addEventListener('click', () => {
+                studentTable.classList.add('hidden');
+                showStudentsBtn.style.backgroundColor = "darkorange"
+                studentCard.classList.add('hidden')
+                // searchInput.classList.add('hidden');
+                closeTableBtn.classList.add('hidden');
+                studentProfile.classList.add('hidden');
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
