@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar button {
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 15px;
+            height: 42px;
+            width: 124px;
+            border-radius: 5px;
+            margin-top: 13px;
+        }
+
+        .navbar button:hover {
+            background-color: #3b5998;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 50px);
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sidebar button {
+            background-color: #3b5998;
+            color: #ecf0f1;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: left;
+            height: 100px;
+            border-radius: 10px;
+            font-size: 19px;
+            text-align: center;
+        }
+
+        .sidebar button:hover {
+            background-color: #1d3557;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="navButtons" onclick="navigateTo('studenthomeRakesh.html')">Home</button>
+        <h1 style="color: yellow;">Student Portal</h1>
+        <button onclick="navigateTo('schoolManagement.html')">Logout</button>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button onclick="loadContent('myprofile2.html')">My Profile</button>
+            <button onclick="loadContent('assignments.html')">Assignments</button>
+            <button onclick="loadContent('attendence.html')">Attendence</button>
+            <button onclick="loadContent('examination.html')">Examination</button>
+            <button onclick="loadContent('myleaveinfo.html')">Leave Info</button>
+        </div>
+        <!-- Sidebar -->
+
+        <!-- Main Content Area -->
+        <div class="main-content" id="main-content">
+            <h1>Hello Good Morning Rakesh!</h1>
+        </div>
+        <!-- Main Content Area -->
+    </div>
+
+    <script>
+        function loadContent(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                    document.getElementById('main-content').innerHTML = '<p>Sorry, an error occurred while loading the content.</p>';
+                });
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+    </script>
+</body>
+
+</html>
